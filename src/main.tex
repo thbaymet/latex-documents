@@ -1,0 +1,71 @@
+\documentclass{beamer}
+\mode<presentation>
+{
+\usetheme{CambridgeUS}      % or try Darmstadt, Madrid, Warsaw, ...
+\usecolortheme{default} % or try albatross, beaver, crane, ...
+\usefonttheme{default}  % or try serif, structurebold, ...
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstdefinestyle{Signature}{
+basicstyle=\small,
+language=Scala,
+morekeywords={*,that}
+}
+\lstdefinestyle{Default}{
+basicstyle=\tiny,
+language=Scala,
+morekeywords={*,Seq},
+breakatwhitespace=false,
+stringstyle=\color{mymauve},
+breaklines=true
+}
+
+
+\title[Scala functions]{Scala API - functions}
+\author{You}
+\institute{Where You're From}
+\date{\today}
+
+
+\begin{document}
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+
+    \section{Scala functions}
+
+    \begin{frame}[fragile]{Zip}
+        \begin{lstlisting}[style=Signature]
+def zip[B](that: GenIterable[B]): Array[(A, B)]
+        \end{lstlisting}
+
+        \begin{block}{Description}
+            Returns a array formed from this array and another iterable collection by combining corresponding elements in pairs. If one of the two collections is longer than the other, its remaining elements are ignored.
+        \end{block}
+        \vskip 1cm
+
+        \begin{lstlisting}[style=Default]
+val donuts: Seq[String] = Seq("Plain Donut", "Strawberry Donut", "Glazed Donut")
+val prices: Seq[Double] = Seq(1.5, 2.0, 2.5)
+val donutPrices: Seq[(String, Double)] = donuts zip prices
+donutPrices: Seq[(String, Double)] =
+    List((Plain Donut,1.5), (Strawberry Donut,2.0), (Glazed Donut,2.5))
+        \end{lstlisting}
+        
+        \begin{block}
+
+        \end{block}
+    \end{frame}
+\end{document}
